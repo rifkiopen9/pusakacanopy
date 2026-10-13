@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <meta content="web_standard" name="shell-type">
+  <meta name="description" content="Pusaka Canopy - Spesialis jasa pembuatan dan pemasangan kanopi kain, awning gulung, serta tenda membrane untuk hunian, toko, kafe, dan area komersial di Jabodetabek. Konsultasi gratis via WhatsApp.">
+  <title>Pusaka Canopy - Jasa Pembuatan &amp; Pasang Kanopi Kain Premium</title>
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <style>
+    @layer base {
+      html, body { margin: 0; padding: 0; }
+      body { overscroll-behavior: none; }
+      main > :first-child { margin-top: 0 !important; }
+      main > :last-child  { margin-bottom: 0 !important; }
+    }
+    ::-webkit-scrollbar { display: none; }
+    #mobile-overlay {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.45); z-index: 45; backdrop-filter: blur(2px);
+    }
+    #mobile-overlay.open { display: block; }
+    #mobile-drawer {
+      position: fixed; top: 0; right: 0; height: 100%;
+      width: min(320px, 85vw); background: #f8f9ff; z-index: 46;
+      transform: translateX(100%);
+      transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+      display: flex; flex-direction: column;
+      box-shadow: -8px 0 32px rgba(0,0,0,0.12);
+    }
+    #mobile-drawer.open { transform: translateX(0); }
+    .gallery-item { transition: opacity 0.3s ease, transform 0.3s ease; }
+    .gallery-item.hidden-item { opacity: 0; pointer-events: none; transform: scale(0.97); }
+  </style>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: { extend: { colors: {
+        "on-secondary":"#ffffff","surface-variant":"#d3e4fe","secondary":"#565e74",
+        "on-primary-fixed":"#002109","outline":"#6e7b6c","inverse-on-surface":"#eaf1ff",
+        "tertiary-fixed":"#dbe1ff","on-secondary-fixed-variant":"#3f465c","on-tertiary":"#ffffff",
+        "on-error-container":"#93000a","surface-container-low":"#eff4ff","on-secondary-container":"#5c647a",
+        "tertiary":"#0051d5","on-background":"#0b1c30","on-error":"#ffffff",
+        "on-primary-fixed-variant":"#005320","surface":"#f8f9ff","primary":"#006b2c",
+        "on-primary-container":"#f7fff2","secondary-fixed-dim":"#bec6e0","surface-container-high":"#dce9ff",
+        "primary-fixed-dim":"#62df7d","background":"#f8f9ff","on-tertiary-fixed-variant":"#003ea8",
+        "primary-container":"#00873a","surface-container-highest":"#d3e4fe","secondary-container":"#dae2fd",
+        "on-tertiary-container":"#fefcff","surface-dim":"#cbdbf5","on-tertiary-fixed":"#00174b",
+        "surface-bright":"#f8f9ff","primary-fixed":"#7ffc97","on-surface-variant":"#3e4a3d",
+        "surface-tint":"#006e2d","outline-variant":"#bdcaba","tertiary-container":"#316bf3",
+        "on-secondary-fixed":"#131b2e","secondary-fixed":"#dae2fd","on-surface":"#0b1c30",
+        "inverse-primary":"#62df7d","surface-container":"#e5eeff","tertiary-fixed-dim":"#b4c5ff",
+        "inverse-surface":"#213145","on-primary":"#ffffff","surface-container-lowest":"#ffffff",
+        "error-container":"#ffdad6","error":"#ba1a1a"
+      }, borderRadius: { DEFAULT:"0.25rem",lg:"0.5rem",xl:"0.75rem",full:"9999px" },
+      spacing: {
+        "space-lg":"1.5rem","margin":"2rem","space-xl":"2.5rem","gutter":"1.5rem",
+        "space-md":"1rem","space-xs":"0.25rem","space-sm":"0.5rem","gutter-mobile":"1rem","margin-mobile":"1rem"
+      },
+      fontFamily: {
+        "title-lg":["Plus Jakarta Sans"],"body-sm":["Plus Jakarta Sans"],"headline-sm":["Plus Jakarta Sans"],
+        "title-md":["Plus Jakarta Sans"],"body-lg":["Plus Jakarta Sans"],"label-md":["Plus Jakarta Sans"],
+        "label-sm":["Plus Jakarta Sans"],"body-md":["Plus Jakarta Sans"],"headline-md":["Plus Jakarta Sans"],
+        "display-mobile":["Plus Jakarta Sans"],"display":["Plus Jakarta Sans"],"label-lg":["Plus Jakarta Sans"],
+        "headline-lg":["Plus Jakarta Sans"],"headline-lg-mobile":["Plus Jakarta Sans"]
+      },
+      fontSize: {
+        "title-lg":["18px",{lineHeight:"26px",fontWeight:"600"}],
+        "body-sm":["13px",{lineHeight:"20px",fontWeight:"400"}],
+        "headline-sm":["20px",{lineHeight:"28px",fontWeight:"600"}],
+        "title-md":["16px",{lineHeight:"24px",fontWeight:"600"}],
+        "body-lg":["18px",{lineHeight:"28px",fontWeight:"400"}],
+        "label-md":["12px",{lineHeight:"16px",letterSpacing:"0.02em",fontWeight:"600"}],
+        "label-sm":["11px",{lineHeight:"14px",letterSpacing:"0.04em",fontWeight:"700"}],
+        "body-md":["15px",{lineHeight:"24px",fontWeight:"400"}],
+        "headline-md":["24px",{lineHeight:"32px",letterSpacing:"-0.01em",fontWeight:"700"}],
+        "display-mobile":["34px",{lineHeight:"42px",letterSpacing:"-0.02em",fontWeight:"800"}],
+        "display":["48px",{lineHeight:"56px",letterSpacing:"-0.03em",fontWeight:"800"}],
+        "label-lg":["14px",{lineHeight:"20px",letterSpacing:"0.01em",fontWeight:"600"}],
+        "headline-lg":["36px",{lineHeight:"44px",letterSpacing:"-0.02em",fontWeight:"700"}],
+        "headline-lg-mobile":["28px",{lineHeight:"36px",letterSpacing:"-0.02em",fontWeight:"700"}]
+      }}}
+    }
+  </script>
+  <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+    <symbol id="icon-whatsapp" viewBox="0 0 24 24">
+      <path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.007c.106.005.249-.04.39.299.144.347.491 1.2.534 1.287.043.087.072.188.014.303-.058.116-.087.188-.173.289l-.26.303c-.087.087-.179.182-.077.357.101.175.45 1.056 1.341 1.547.453.25 1.08.411 1.233.456.17.05.267.043.376-.079.13-.145.553-.645.7-.867.147-.222.295-.185.498-.108.203.077 1.288.607 1.51.717.222.11.369.164.424.256.055.092.055.534-.089.939z"/>
+      <path d="M12 2C6.477 2 2 6.477 2 12c0 1.891.524 3.662 1.435 5.176L2 22l4.981-1.399C8.423 21.439 10.147 22 12 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18.2c-1.637 0-3.155-.494-4.423-1.34l-.317-.213-2.969.833.844-2.898-.225-.333C4.015 14.939 3.5 13.518 3.5 12c0-4.687 3.813-8.5 8.5-8.5s8.5 3.813 8.5 8.5-3.813 8.5-8.5 8.5z"/>
+    </symbol>
+  </svg>
+</head>
+<body class="bg-surface font-body-md text-on-surface antialiased">
+
+<!-- MOBILE OVERLAY -->
+<div id="mobile-overlay" aria-hidden="true"></div>
+
+<!-- MOBILE DRAWER -->
+<nav id="mobile-drawer" aria-label="Menu navigasi mobile" role="dialog" aria-modal="true">
+  <div class="flex items-center justify-between p-5 border-b border-outline-variant">
+    <div class="flex items-center gap-2">
+      <div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary">
+        <span class="material-symbols-outlined text-[20px]">roofing</span>
+      </div>
+      <span class="font-title-md text-title-md uppercase font-bold text-on-surface">PUSAKA CANOPY</span>
+    </div>
+    <button id="close-drawer-btn" aria-label="Tutup menu" class="w-9 h-9 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors">
+      <span class="material-symbols-outlined text-[24px]">close</span>
+    </button>
+  </div>
+  <div class="flex flex-col gap-1 p-4 flex-1">
+    <a href="#hero"       data-section="hero"       class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-label-lg text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">home</span>Beranda</a>
+    <a href="#layanan"    data-section="layanan"    class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-label-lg text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">category</span>Layanan</a>
+    <a href="#keunggulan" data-section="keunggulan" class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-label-lg text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">verified</span>Keunggulan</a>
+    <a href="#portfolio"  data-section="portfolio"  class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-label-lg text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">photo_library</span>Portfolio</a>
+    <a href="#kontak"     data-section="kontak"     class="mobile-nav-link flex items-center gap-3 px-4 py-3 rounded-xl font-label-lg text-label-lg text-on-surface hover:bg-surface-container transition-colors"><span class="material-symbols-outlined text-[20px] text-primary">contact_phone</span>Kontak</a>
+  </div>
+  <div class="p-4 border-t border-outline-variant">
+    <a href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy,%20saya%20ingin%20konsultasi%20kanopi%20kain" rel="noopener noreferrer" target="_blank"
+       class="w-full flex items-center justify-center gap-2 h-12 rounded-xl bg-[#16A34A] hover:bg-[#15803D] text-white font-label-lg text-label-lg shadow-sm transition-colors">
+      <svg class="w-5 h-5 fill-current"><use href="#icon-whatsapp"/></svg>Konsultasi via WhatsApp
+    </a>
+  </div>
+</nav>
+
+<!-- HEADER -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)]">
+  <div class="h-20 max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter flex items-center justify-between">
+    <a class="flex items-center gap-space-sm text-on-surface group" href="#hero">
+      <div class="w-10 h-10 rounded-lg bg-surface-container-high flex items-center justify-center text-primary transition-colors group-hover:bg-primary group-hover:text-on-primary">
+        <span class="material-symbols-outlined text-[24px]">roofing</span>
+      </div>
+      <div class="flex flex-col">
+        <span class="font-title-md text-title-md tracking-tight uppercase leading-none font-bold text-on-surface">PUSAKA CANOPY</span>
+        <span class="font-label-sm text-label-sm text-secondary tracking-wider uppercase mt-0.5">Spesialis Kanopi Kain &amp; Awning</span>
+      </div>
+    </a>
+    <nav class="hidden lg:flex items-center gap-space-lg" aria-label="Navigasi utama">
+      <a class="desktop-nav-link font-label-lg text-label-lg px-space-sm py-space-xs transition-colors rounded-lg" data-section="hero"       href="#hero">Beranda</a>
+      <a class="desktop-nav-link font-label-lg text-label-lg px-space-sm py-space-xs transition-colors rounded-lg" data-section="layanan"    href="#layanan">Layanan</a>
+      <a class="desktop-nav-link font-label-lg text-label-lg px-space-sm py-space-xs transition-colors rounded-lg" data-section="keunggulan" href="#keunggulan">Keunggulan</a>
+      <a class="desktop-nav-link font-label-lg text-label-lg px-space-sm py-space-xs transition-colors rounded-lg" data-section="portfolio"  href="#portfolio">Portfolio</a>
+      <a class="desktop-nav-link font-label-lg text-label-lg px-space-sm py-space-xs transition-colors rounded-lg" data-section="kontak"     href="#kontak">Kontak</a>
+    </nav>
+    <div class="flex items-center gap-space-sm">
+      <a class="hidden sm:inline-flex items-center gap-space-xs bg-[#16A34A] hover:bg-[#15803D] active:bg-[#166534] text-on-primary px-space-md py-space-sm rounded-lg font-label-lg text-label-lg transition-all shadow-[0_4px_14px_rgba(22,163,74,0.25)]"
+         href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy,%20saya%20ingin%20konsultasi%20kanopi%20kain" rel="noopener noreferrer" target="_blank">
+        <span class="material-symbols-outlined text-[20px]">chat</span><span>Konsultasi via WhatsApp</span>
+      </a>
+      <button id="open-drawer-btn" aria-label="Buka menu navigasi" aria-expanded="false" aria-controls="mobile-drawer"
+              class="lg:hidden w-10 h-10 rounded-lg flex items-center justify-center text-on-surface hover:bg-surface-container-high transition-colors" type="button">
+        <span class="material-symbols-outlined text-[26px]">menu</span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MAIN -->
+<main class="w-full pt-20 bg-surface">
+<div class="flex flex-col w-full">
+
+<!-- HERO -->
+<section class="relative w-full bg-surface-container-lowest overflow-hidden py-12 md:py-20" id="hero">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      <div class="lg:col-span-7 flex flex-col items-start z-10">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/15 text-primary mb-5">
+          <span class="material-symbols-outlined text-[18px]">verified</span>
+          <span class="font-label-sm text-label-sm uppercase tracking-wider font-bold">JASA KANOPI KAIN PROFESIONAL</span>
+        </div>
+        <h1 class="font-display text-display leading-tight text-on-surface mb-6">Jasa Kanopi Kain untuk Teras, Toko &amp; Area Komersial</h1>
+        <p class="font-body-lg text-body-lg text-secondary mb-8 max-w-xl">Percantik dan lindungi area luar bangunan dengan kanopi kain yang dirancang sesuai kebutuhan, ukuran, dan karakter bangunan Anda.</p>
+        <div class="flex flex-col sm:flex-row items-stretch sm:items-center gap-4 w-full sm:w-auto mb-10">
+          <a class="inline-flex items-center justify-center gap-2.5 h-[52px] px-7 rounded-lg bg-primary hover:bg-[#15803D] active:bg-[#166534] text-on-primary font-label-lg text-label-lg shadow-md transition-all"
+             href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20ingin%20konsultasi%20jasa%20kanopi%20kain." rel="noopener noreferrer" target="_blank">
+            <svg class="w-5 h-5 fill-current"><use href="#icon-whatsapp"/></svg><span>Konsultasi via WhatsApp</span>
+          </a>
+          <a class="inline-flex items-center justify-center gap-2 h-[52px] px-6 rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-label-lg text-label-lg transition-colors" href="#portfolio">
+            <span>Lihat Hasil Pengerjaan</span><span class="material-symbols-outlined text-[18px]">arrow_downward</span>
+          </a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 w-full bg-surface-container-low/70 p-4 rounded-xl">
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-[16px]">draw</span></div>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Desain Menyesuaikan Kebutuhan</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-[16px]">palette</span></div>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Pilihan Model dan Warna</span>
+          </div>
+          <div class="flex items-center gap-2.5">
+            <div class="w-7 h-7 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-[16px]">forum</span></div>
+            <span class="font-label-md text-label-md text-on-surface font-semibold">Konsultasi Sebelum Pengerjaan</span>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-5 relative">
+        <div class="relative rounded-2xl overflow-hidden shadow-xl bg-surface-container">
+          <img alt="Pengerjaan Kanopi Kain Residensial Pusaka Canopy" class="w-full h-[420px] lg:h-[480px] object-cover hover:scale-105 transition-transform duration-500"
+               src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpG9TDO4iZQOiUKDZLHA0tLizQBQLQ5XLTVfM6gPD5qdWuU1VHJBQ4CM_fVn2PgnJOPoBYKPqdCFP9s2pvalNFCZ05i6q55GWF2zTOFca5_sTw5xhry2DZhFgyVZz4qQW-k0jIVjnRaXaIUfi5Dr8-7vX58rhDk3RMTrsxeva3SPoJltWYj2HLD7gTf1TutjX3iqpdcWpT7OGZCVKR0TK7ILXXdzq1-7LR3RcS89uaOcRWNO2JHTQN9A">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-5">
+            <div class="bg-surface/95 backdrop-blur-md px-4 py-2.5 rounded-lg flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-[20px]">roofing</span>
+              <div><p class="font-title-md text-title-md text-on-surface font-bold leading-tight">Pengerjaan Kanopi Kain Residensial</p><p class="font-label-sm text-label-sm text-secondary">Instalasi Fasad &amp; Teras Modern</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEUNGGULAN -->
+<section class="w-full py-16 md:py-24 bg-surface" id="keunggulan">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="max-w-2xl mb-12">
+      <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-primary mb-2 block">Keunggulan &amp; Nilai Tambah</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Kanopi Kain yang Sesuai dengan Kebutuhan Bangunan Anda</h2>
+      <p class="font-body-md text-body-md text-secondary">Setiap area memiliki kebutuhan berbeda. Pilih solusi kanopi kain yang sesuai dengan fungsi ruang dan tampilan bangunan Anda.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-[28px]">architecture</span></div>
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-2">Tampilan Lebih Menarik</h3>
+        <p class="font-body-md text-body-md text-secondary">Membantu mempercantik fasad dan area luar bangunan dengan sentuhan gaya arsitektural kontemporer.</p>
+      </div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-[28px]">style</span></div>
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-2">Pilihan Model Beragam</h3>
+        <p class="font-body-md text-body-md text-secondary">Sesuaikan bentuk kubah, gelombang, maupun minimalis serta ragam warna kain dengan konsep bangunan.</p>
+      </div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-[28px]">deck</span></div>
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-2">Pemanfaatan Area Outdoor</h3>
+        <p class="font-body-md text-body-md text-secondary">Membantu membuat teras, balkon, dan area usaha lebih nyaman digunakan tanpa terganggu terik matahari dan hujan.</p>
+      </div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="w-12 h-12 rounded-lg bg-surface-container-high flex items-center justify-center text-primary mb-5"><span class="material-symbols-outlined text-[28px]">square_foot</span></div>
+        <h3 class="font-title-lg text-title-lg text-on-surface mb-2">Pengerjaan Sesuai Kebutuhan</h3>
+        <p class="font-body-md text-body-md text-secondary">Perencanaan teknis presisi berdasarkan ukuran riil lapangan dan kondisi struktur penyangga di lokasi.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LAYANAN -->
+<section class="w-full py-16 md:py-24 bg-surface-container-low" id="layanan">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="text-center max-w-2xl mx-auto mb-14">
+      <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-primary mb-2 block">Katalog Solusi</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Solusi Kanopi Kain untuk Berbagai Kebutuhan</h2>
+      <p class="font-body-md text-body-md text-secondary">Pilihan aplikasi kanopi kain berkualitas untuk berbagai tipe properti Anda.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Kain Rumah dan Teras" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpG9TDO4iZQOiUKDZLHA0tLizQBQLQ5XLTVfM6gPD5qdWuU1VHJBQ4CM_fVn2PgnJOPoBYKPqdCFP9s2pvalNFCZ05i6q55GWF2zTOFca5_sTw5xhry2DZhFgyVZz4qQW-k0jIVjnRaXaIUfi5Dr8-7vX58rhDk3RMTrsxeva3SPoJltWYj2HLD7gTf1TutjX3iqpdcWpT7OGZCVKR0TK7ILXXdzq1-7LR3RcS89uaOcRWNO2JHTQN9A">
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Residensial</span>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 justify-between">
+          <div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Kanopi Kain Rumah dan Teras</h3><p class="font-body-md text-body-md text-secondary mb-6">Perlindungan elegan untuk carport, balkon, dan teras santai rumah pribadi yang tahan terhadap cuaca tropis.</p></div>
+          <a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-[#15803D] font-bold group" href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20tertarik%20dengan%20model%20Kanopi%20Kain%20Rumah%20dan%20Teras." rel="noopener noreferrer" target="_blank">
+            <span>Konsultasi Model Ini</span><span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Kain Toko dan Ruko" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArQJLHiKNywwhA7x0A1J7YX2acAz4ZBovw-hTkUdxoUWoM2FVLjbbW5pM3KVeHKSeCsMtCqjxJrSmZx1ALXkg3MsCpvyzDqu6U5sdkGqmDUm_xB8SFBscAnsBZfSMHDYM4tYvcoLbBieSxKnACU047WEOR7fSd7eQh_6KkUYlkO9CS8FrsJxprdjDOmWxiJbvC_Z612r1bCFdfXbZlHkoAFCjUWYzDyal9Gxvh2Nr_qzkWaMtgKoeaWg">
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Komersial Ritel</span>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 justify-between">
+          <div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Kanopi Kain Toko dan Ruko</h3><p class="font-body-md text-body-md text-secondary mb-6">Menambah daya tarik visual etalase toko dan ruko komersial Anda, sekaligus memberi keteduhan untuk pelanggan yang datang.</p></div>
+          <a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-[#15803D] font-bold group" href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20tertarik%20dengan%20model%20Kanopi%20Kain%20Toko%20dan%20Ruko." rel="noopener noreferrer" target="_blank">
+            <span>Konsultasi Model Ini</span><span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Kain Kafe dan Restoran" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQngJ36IXrED6Fpd0J7mglN9L0Nbj0Z8B90569Pg41QnxX6JuRIJgwClLHSZkWBBqbIFTbiHHlOPHydaNa0mbTKKdtOmy8KO41mzpeukwTJaSZLuMf2XDLnO0hJ5zEAE_j1DyXFn8XqdR06ZCnv11FOBZ0D3HmMIlfzigOvF_UUKKskdaUY8oClDSnuBRWxdHAynP4p4QwJfTi9nFnsMc_R4lR5JmtwfL18IKE4PZUH-OzH6ir3CtlrA">
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Hospitality &amp; F&amp;B</span>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 justify-between">
+          <div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Kanopi Kain Kafe dan Restoran</h3><p class="font-body-md text-body-md text-secondary mb-6">Ciptakan suasana outdoor dining yang teduh, instagramable, dan nyaman bagi pengunjung untuk bersantai lebih lama.</p></div>
+          <a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-[#15803D] font-bold group" href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20tertarik%20dengan%20model%20Kanopi%20Kain%20Kafe%20dan%20Restoran." rel="noopener noreferrer" target="_blank">
+            <span>Konsultasi Model Ini</span><span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+      <div class="bg-surface-container-lowest rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Kain Area Komersial" class="w-full h-full object-cover hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6U_QYJer_fKHqxGOWze7A2zuEKPrf6HXaVAbaeR5uuGo2byagYC5l3TGRSZDS2VCnnsKmTaqxTqSgzAz-BH4CmdfIFae47GsjXQ4ZjYcCk2nGYBObFTtYGu_pR-EHDlJX9MCCAjhyoWHifwECLI-MDBJVQ_NXzY8wK9UX7b0ie3aZQlPMCEJcDZvVypfq1yVtYpVxLDeuKqoINRRaLFZIHcnOtMah3_42FgfCsernGB8ey4KjP83Dfg">
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Skala Besar</span>
+        </div>
+        <div class="p-6 md:p-8 flex flex-col flex-1 justify-between">
+          <div><h3 class="font-headline-sm text-headline-sm text-on-surface mb-2">Kanopi Kain Area Komersial</h3><p class="font-body-md text-body-md text-secondary mb-6">Desain peneduh modern berskala besar untuk hotel, villa, kolam renang, dan gedung perkantoran prestisius.</p></div>
+          <a class="inline-flex items-center gap-2 font-label-lg text-label-lg text-primary hover:text-[#15803D] font-bold group" href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20tertarik%20dengan%20model%20Kanopi%20Kain%20Area%20Komersial." rel="noopener noreferrer" target="_blank">
+            <span>Konsultasi Model Ini</span><span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="w-full py-16 md:py-24 bg-surface" id="portfolio">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-primary mb-2 block">Dokumentasi &amp; Referensi</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Inspirasi Model Kanopi Kain</h2>
+      <p class="font-body-md text-body-md text-secondary">Lihat berbagai inspirasi penerapan kanopi kain untuk rumah, tempat usaha, dan area outdoor. Semua foto dapat menjadi referensi model untuk bangunan Anda.</p>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+      <div class="group relative rounded-xl overflow-hidden shadow-sm bg-surface-container">
+        <img alt="Model Awning Kafe Modern" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAQngJ36IXrED6Fpd0J7mglN9L0Nbj0Z8B90569Pg41QnxX6JuRIJgwClLHSZkWBBqbIFTbiHHlOPHydaNa0mbTKKdtOmy8KO41mzpeukwTJaSZLuMf2XDLnO0hJ5zEAE_j1DyXFn8XqdR06ZCnv11FOBZ0D3HmMIlfzigOvF_UUKKskdaUY8oClDSnuBRWxdHAynP4p4QwJfTi9nFnsMc_R4lR5JmtwfL18IKE4PZUH-OzH6ir3CtlrA">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+          <span class="font-label-sm text-label-sm text-[#7ffc97] font-semibold uppercase mb-1">Striped Awning</span>
+          <p class="font-title-md text-title-md text-on-primary font-bold">Model Awning Kafe Modern</p>
+        </div>
+      </div>
+      <div class="group relative rounded-xl overflow-hidden shadow-sm bg-surface-container">
+        <img alt="Tension Canopy Teras Villa" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6U_QYJer_fKHqxGOWze7A2zuEKPrf6HXaVAbaeR5uuGo2byagYC5l3TGRSZDS2VCnnsKmTaqxTqSgzAz-BH4CmdfIFae47GsjXQ4ZjYcCk2nGYBObFTtYGu_pR-EHDlJX9MCCAjhyoWHifwECLI-MDBJVQ_NXzY8wK9UX7b0ie3aZQlPMCEJcDZvVypfq1yVtYpVxLDeuKqoINRRaLFZIHcnOtMah3_42FgfCsernGB8ey4KjP83Dfg">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+          <span class="font-label-sm text-label-sm text-[#7ffc97] font-semibold uppercase mb-1">Tensile Membrane</span>
+          <p class="font-title-md text-title-md text-on-primary font-bold">Tension Canopy Teras Villa</p>
+        </div>
+      </div>
+      <div class="group relative rounded-xl overflow-hidden shadow-sm bg-surface-container">
+        <img alt="Kanopi Kain Fasad Ruko" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArQJLHiKNywwhA7x0A1J7YX2acAz4ZBovw-hTkUdxoUWoM2FVLjbbW5pM3KVeHKSeCsMtCqjxJrSmZx1ALXkg3MsCpvyzDqu6U5sdkGqmDUm_xB8SFBscAnsBZfSMHDYM4tYvcoLbBieSxKnACU047WEOR7fSd7eQh_6KkUYlkO9CS8FrsJxprdjDOmWxiJbvC_Z612r1bCFdfXbZlHkoAFCjUWYzDyal9Gxvh2Nr_qzkWaMtgKoeaWg">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+          <span class="font-label-sm text-label-sm text-[#7ffc97] font-semibold uppercase mb-1">Dome &amp; Slope</span>
+          <p class="font-title-md text-title-md text-on-primary font-bold">Kanopi Kain Fasad Ruko</p>
+        </div>
+      </div>
+      <div class="group relative rounded-xl overflow-hidden shadow-sm bg-surface-container">
+        <img alt="Canopy Minimalis Residensial" class="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-300" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDpG9TDO4iZQOiUKDZLHA0tLizQBQLQ5XLTVfM6gPD5qdWuU1VHJBQ4CM_fVn2PgnJOPoBYKPqdCFP9s2pvalNFCZ05i6q55GWF2zTOFca5_sTw5xhry2DZhFgyVZz4qQW-k0jIVjnRaXaIUfi5Dr8-7vX58rhDk3RMTrsxeva3SPoJltWYj2HLD7gTf1TutjX3iqpdcWpT7OGZCVKR0TK7ILXXdzq1-7LR3RcS89uaOcRWNO2JHTQN9A">
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent p-4 flex flex-col justify-end">
+          <span class="font-label-sm text-label-sm text-[#7ffc97] font-semibold uppercase mb-1">Retractable / Lipat</span>
+          <p class="font-title-md text-title-md text-on-primary font-bold">Canopy Minimalis Residensial</p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-5 rounded-xl bg-surface-container-low mb-8">
+      <div class="flex items-center gap-3">
+        <span class="material-symbols-outlined text-secondary text-[24px]">info</span>
+        <p class="font-body-sm text-body-sm text-secondary">Foto referensi model &amp; inspirasi konstruksi kain peneduh. Warna dan rangka dapat dikustomisasi.</p>
+      </div>
+      <a class="inline-flex items-center justify-center gap-2 h-11 px-6 rounded-lg bg-primary hover:bg-[#15803D] text-on-primary font-label-lg text-label-lg whitespace-nowrap shadow-sm"
+         href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20ingin%20berdiskusi%20mengenai%20model%20kanopi%20dari%20galeri%20portfolio." rel="noopener noreferrer" target="_blank">
+        <span class="material-symbols-outlined text-[18px]">chat</span><span>Diskusikan Model Kanopi Anda</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALERI PROYEK -->
+<section class="w-full py-16 md:py-24 bg-surface-container-lowest" id="galeri-proyek">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-primary-container/15 text-primary mb-3">
+        <span class="material-symbols-outlined text-[18px]">photo_library</span>
+        <span class="font-label-sm text-label-sm uppercase tracking-wider font-bold">GALERI DOKUMENTASI PROYEK</span>
+      </div>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Galeri Foto Pemasangan Kanopi Kain</h2>
+      <p class="font-body-md text-body-md text-secondary">Koleksi visual hasil instalasi peneduh kain arsitektural pada hunian residensial, villa, gerai usaha ruko, kafe, serta bangunan komersial.</p>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-2.5 mb-10" id="gallery-filters" role="group" aria-label="Filter kategori galeri">
+      <button class="gallery-filter-btn px-5 py-2 rounded-full font-label-md text-label-md bg-primary text-on-primary shadow-sm transition-all" type="button" data-filter="all">Semua Proyek</button>
+      <button class="gallery-filter-btn px-5 py-2 rounded-full font-label-md text-label-md bg-surface-container text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all" type="button" data-filter="residensial">Residensial &amp; Villa</button>
+      <button class="gallery-filter-btn px-5 py-2 rounded-full font-label-md text-label-md bg-surface-container text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all" type="button" data-filter="kafe">Kafe &amp; Resto</button>
+      <button class="gallery-filter-btn px-5 py-2 rounded-full font-label-md text-label-md bg-surface-container text-secondary hover:text-on-surface hover:bg-surface-container-high transition-all" type="button" data-filter="komersial">Komersial &amp; Ruko</button>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12" id="gallery-grid">
+      <div class="gallery-item group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col" data-category="residensial">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Kain Lengkung Awning Villa Mewah" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiaMwLBOB6ySgQcxsKZOWcyY1d-5PKwqQ68F4JCYEwg0I3qqH9VIpaNmfE9Tmo2uO6AP6i9Vum4SjV9NqP9rmH_RBChskgQIp-3TiApDfaFjxyIoNzVVpFCH2oGky1_1avE9r8eVwODSgKJnnhuogS6bEeU42vGHTpnafcFzit7h5DQJub9mHvfep1ayoy5IiMihk0M5kM7DM3Hv8GzRw_CZT5pwDmSjWGzAQ-jh5xs0Vf9cuXJzUMLg">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">zoom_in</span></div></div>
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Villa &amp; Residensial</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between bg-surface-container-low"><div>
+          <h3 class="font-title-md text-title-md text-on-surface font-bold mb-1">Kanopi Kain Lengkung Awning Villa Mewah</h3>
+          <p class="font-body-sm text-body-sm text-secondary">Konstruksi lengkung kanopi kain peneduh teras balkon dengan lanskap tropis terbuka.</p>
+        </div></div>
+      </div>
+      <div class="gallery-item group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col" data-category="komersial">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Portico Kain Navy Entrance Hotel dan Butik" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBRMuA8VLyK8GP1pqqdbbBlX48Rn_53zrkmAZ_L3kUt_1E0iojYwA3fY8wUMgtQ7e3SuWw_e0qu1JD3ieBjXr1BpciZ_Q5GI9UmlZOF05FciOkbUhgjcI4zcSBIyk9ZJ75eOEVaLWtAcfB7sZJowK2qntwWrGXNqTvsMFyWnTLPy1AOYF0bLi4TovdHf6_rlzR0q5V2QLw4gmHu2o_Ig6SiFj1ipSBWtbuTdOYJkHzAJlye4A4WJaKOyQ">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">zoom_in</span></div></div>
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Komersial / Hospitality</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between bg-surface-container-low"><div>
+          <h3 class="font-title-md text-title-md text-on-surface font-bold mb-1">Kanopi Portico Kain Navy Entrance Hotel &amp; Butik</h3>
+          <p class="font-body-sm text-body-sm text-secondary">Pintu masuk gerbang hotel beraksen tiang metalik kuningan dan kanopi kain presisi.</p>
+        </div></div>
+      </div>
+      <div class="gallery-item group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col" data-category="residensial">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Kain Retractable Teras Rumah Minimalis" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WNWB0aip8IU4MyjDpLOdfv4NGLM3mwXRJrkW_faOypT6hucyIyFQ2jxhCDX4QpIHAcrcItveXCFHxqdZxM5YaRw2QHdzX09efVyZihNUkRW7O_JaImSTQcyv6gdMrdyNLnyWYaJ4wHBsqA6_ltHeZkf8-fnh_JI5kBVrIkjLiXsS9FvUPa87ayKJVw0Bby125T0rlOCd5keuy6Yof7EmwRMxUYnl0vjhh7BoQRckyIhFc7ovy8OKcBfRIt">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">zoom_in</span></div></div>
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Residensial Modern</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between bg-surface-container-low"><div>
+          <h3 class="font-title-md text-title-md text-on-surface font-bold mb-1">Kanopi Kain Retractable Teras Rumah Minimalis</h3>
+          <p class="font-body-sm text-body-sm text-secondary">Awning bergaris motif gelap untuk teras outdoor santai keluarga dengan taman asri.</p>
+        </div></div>
+      </div>
+      <div class="gallery-item group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col" data-category="komersial">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Awning Kanopi Kain Fasad Toko Kopi dan Ruko" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1Uv1QU9S7loURWacMHD5gY5K9Me7fBuLOSSYVEWbNKsCHwvjMI0dulQIb7o0qOuljDfjiwj4A1qP5VwvXh_wDz72IxJitUtoSABC0yTKLjvB1O68oIfoThU2oTg5_tf3MwIPlauvd7B9gUq6Wygar4XQiYhSFz0dTceHol9Qi0I-sMM4MGZufjcw__KTU3XewPKjx1vgDr3PNB10KcN6uBNVz7KcdrSsJba09tSmpqyqIzhmOiljO-6KJ4">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">zoom_in</span></div></div>
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Komersial Ruko</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between bg-surface-container-low"><div>
+          <h3 class="font-title-md text-title-md text-on-surface font-bold mb-1">Awning Kanopi Kain Fasad Toko Kopi &amp; Ruko</h3>
+          <p class="font-body-sm text-body-sm text-secondary">Aksen etalase coffee shop modern dengan kain kanopi abu netral dan branding sablon rapi.</p>
+        </div></div>
+      </div>
+      <div class="gallery-item group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col" data-category="kafe">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Kanopi Dome Striped Fabric Kafe dan Bistro" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1WNsyBgIvEcaZStrMyeylzIubLSBWk36yYuFSFxOAHA50tRr1nnaHX6OWhFudb_7Wn2-vfnqCqnpF7XzRBeBmPRyOmpkVp6YPxCYLFpsnaE0Lqps37OO0VBXkSKoTTIymMUIDlqugQHXLJKz-EwFItL7T8pybSAS-BNXkPQvKwjbE7lviv7Hvx-RBlhLLDphUwJwmCxCqaoy5C44Q8lT-FsLulpiGmUik6bc1KZMBPG96kuavVGiSQxhsdJ">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">zoom_in</span></div></div>
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Kafe &amp; Restoran</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between bg-surface-container-low"><div>
+          <h3 class="font-title-md text-title-md text-on-surface font-bold mb-1">Kanopi Dome Striped Fabric Kafe &amp; Bistro</h3>
+          <p class="font-body-sm text-body-sm text-secondary">Model awning lengkung kubah motif garis vintage khas cafe Eropa untuk area outdoor dining.</p>
+        </div></div>
+      </div>
+      <div class="gallery-item group bg-surface rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition-all flex flex-col" data-category="residensial">
+        <div class="h-64 overflow-hidden relative">
+          <img alt="Tensile Membrane Canopy Patio Sunset Lounge" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida/AEtjO1VLLUIH8zlw5fiLcX412W2u6Bcq7v85jhMnpJVPsnC5zX5HxaZp7os2hRqX00UMR5CfXn-JlX4PPiiQLQWgcYB_S8PD_tua5rZ4GA_gcaVoKxl9iEd8jpsyvwr2J-xJZCJ_vIv7lP1hNNNjcj6oeztfs7bgAY8TIZR-SKJBts48P2_G71Pb6YsDCZkDnCctg3mz2lRznFJPGHWmDZrjbT-FjGm7iyTBuyhB0IyE-QK0EI8l_mvDVM2K2zcn">
+          <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center"><div class="w-10 h-10 rounded-full bg-surface/90 backdrop-blur text-primary flex items-center justify-center shadow-md"><span class="material-symbols-outlined text-[22px]">zoom_in</span></div></div>
+          <span class="absolute top-4 left-4 bg-surface/90 backdrop-blur px-3 py-1 rounded-full font-label-sm text-label-sm text-on-surface font-semibold">Outdoor Lounge</span>
+        </div>
+        <div class="p-5 flex flex-col flex-1 justify-between bg-surface-container-low"><div>
+          <h3 class="font-title-md text-title-md text-on-surface font-bold mb-1">Tensile Membrane Canopy Patio Sunset Lounge</h3>
+          <p class="font-body-sm text-body-sm text-secondary">Tenda bentang membran minimalis berpenataan lampu hangat di area teras kolam renang villa.</p>
+        </div></div>
+      </div>
+    </div>
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 p-6 rounded-2xl bg-surface-container-low shadow-sm">
+      <div class="flex items-center gap-3.5">
+        <div class="w-10 h-10 rounded-full bg-primary-container/20 flex items-center justify-center text-primary shrink-0"><span class="material-symbols-outlined text-[22px]">collections</span></div>
+        <p class="font-body-md text-body-md text-on-surface font-medium">Ingin melihat lebih banyak portofolio atau mencocokkan model kanopi dengan fasad bangunan Anda?</p>
+      </div>
+      <a class="inline-flex items-center justify-center gap-2 h-12 px-6 rounded-lg bg-primary hover:bg-[#15803D] active:bg-[#166534] text-on-primary font-label-lg text-label-lg whitespace-nowrap shadow-sm transition-all shrink-0"
+         href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20ingin%20melihat%20koleksi%20foto%20hasil%20pemasangan%20kanopi%20kain." rel="noopener noreferrer" target="_blank">
+        <span class="material-symbols-outlined text-[20px]">chat</span><span>Minta Foto Referensi Lain via WhatsApp</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MENGAPA PUSAKA CANOPY -->
+<section class="w-full py-16 md:py-24 bg-surface-container-low">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-5 order-2 lg:order-1">
+        <div class="relative rounded-2xl overflow-hidden shadow-lg bg-surface-container">
+          <img alt="Konstruksi Kanopi Pusaka Canopy" class="w-full h-[400px] object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6U_QYJer_fKHqxGOWze7A2zuEKPrf6HXaVAbaeR5uuGo2byagYC5l3TGRSZDS2VCnnsKmTaqxTqSgzAz-BH4CmdfIFae47GsjXQ4ZjYcCk2nGYBObFTtYGu_pR-EHDlJX9MCCAjhyoWHifwECLI-MDBJVQ_NXzY8wK9UX7b0ie3aZQlPMCEJcDZvVypfq1yVtYpVxLDeuKqoINRRaLFZIHcnOtMah3_42FgfCsernGB8ey4KjP83Dfg">
+          <div class="absolute bottom-4 left-4 right-4 bg-surface/90 backdrop-blur-md p-4 rounded-xl">
+            <div class="flex items-center gap-3">
+              <span class="material-symbols-outlined text-primary text-[24px]">precision_manufacturing</span>
+              <div><p class="font-title-md text-title-md text-on-surface font-bold leading-tight">Presisi &amp; Ketelitian Kerja</p><p class="font-body-sm text-body-sm text-secondary">Struktur kokoh dan penyelesaian kain rapi.</p></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="lg:col-span-7 order-1 lg:order-2">
+        <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-primary mb-2 block">Komitmen Profesional</span>
+        <h2 class="font-headline-lg text-headline-lg text-on-surface mb-6">Mengapa Memilih Pusaka Canopy?</h2>
+        <div class="space-y-4 mb-8">
+          <div class="flex items-start gap-3.5 bg-surface-container-lowest p-4 rounded-xl shadow-sm"><span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">check_circle</span><div><p class="font-title-md text-title-md text-on-surface font-semibold mb-0.5">Konsultasi Kebutuhan Tanpa Komitmen Rumit</p><p class="font-body-sm text-body-sm text-secondary">Tanya jawab bebas seputar desain, pilihan bahan kain, dan estimasi tanpa tekanan pemesanan langsung.</p></div></div>
+          <div class="flex items-start gap-3.5 bg-surface-container-lowest p-4 rounded-xl shadow-sm"><span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">check_circle</span><div><p class="font-title-md text-title-md text-on-surface font-semibold mb-0.5">Pilihan Desain Sesuai Karakter Bangunan</p><p class="font-body-sm text-body-sm text-secondary">Rekomendasi model dan palet warna diselaraskan secara proporsional dengan konsep arsitektur properti Anda.</p></div></div>
+          <div class="flex items-start gap-3.5 bg-surface-container-lowest p-4 rounded-xl shadow-sm"><span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">check_circle</span><div><p class="font-title-md text-title-md text-on-surface font-semibold mb-0.5">Perencanaan Berdasarkan Kondisi Lokasi</p><p class="font-body-sm text-body-sm text-secondary">Pengukuran cermat dan pertimbangan titik tumpuan dinding/rangka untuk memastikan hasil aman dan awet.</p></div></div>
+          <div class="flex items-start gap-3.5 bg-surface-container-lowest p-4 rounded-xl shadow-sm"><span class="material-symbols-outlined text-primary text-[22px] shrink-0 mt-0.5">check_circle</span><div><p class="font-title-md text-title-md text-on-surface font-semibold mb-0.5">Komunikasi Langsung &amp; Responsif</p><p class="font-body-sm text-body-sm text-secondary">Terhubung langsung dengan tim pelaksana via WhatsApp tanpa birokrasi berbelit untuk update yang cepat.</p></div></div>
+        </div>
+        <a class="inline-flex items-center gap-2.5 h-12 px-7 rounded-lg bg-primary hover:bg-[#15803D] text-on-primary font-label-lg text-label-lg shadow-sm transition-colors"
+           href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20ingin%20memulai%20diskusi%20kebutuhan%20kanopi%20kain." rel="noopener noreferrer" target="_blank">
+          <span class="material-symbols-outlined text-[20px]">chat</span><span>Mulai Diskusi Sekarang</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROSES PEMESANAN -->
+<section class="w-full py-16 md:py-24 bg-surface">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-primary mb-2 block">Alur Kerja Praktis</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Proses Pemesanan Kanopi Kain</h2>
+      <p class="font-body-md text-body-md text-secondary">Alur kerja praktis dan transparan dari awal konsultasi hingga kanopi siap terpasang di lokasi Anda.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col"><div class="font-display text-display font-extrabold text-primary/20 leading-none mb-4">01</div><h3 class="font-title-lg text-title-lg text-on-surface mb-2 font-bold">Konsultasikan Kebutuhan</h3><p class="font-body-sm text-body-sm text-secondary">Ceritakan lokasi dan kebutuhan kanopi Anda melalui WhatsApp, sertakan foto area jika memungkinkan.</p></div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col"><div class="font-display text-display font-extrabold text-primary/20 leading-none mb-4">02</div><h3 class="font-title-lg text-title-lg text-on-surface mb-2 font-bold">Diskusikan Model</h3><p class="font-body-sm text-body-sm text-secondary">Tentukan model kanopi, pilihan bahan, warna, dan perkiraan ukuran yang diinginkan bersama tim teknis.</p></div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col"><div class="font-display text-display font-extrabold text-primary/20 leading-none mb-4">03</div><h3 class="font-title-lg text-title-lg text-on-surface mb-2 font-bold">Survey &amp; Penawaran</h3><p class="font-body-sm text-body-sm text-secondary">Koordinasikan pengecekan lokasi jika diperlukan serta pembahasan penawaran estimasi biaya resmi.</p></div>
+      <div class="bg-surface-container-lowest p-6 rounded-xl shadow-sm flex flex-col"><div class="font-display text-display font-extrabold text-primary/20 leading-none mb-4">04</div><h3 class="font-title-lg text-title-lg text-on-surface mb-2 font-bold">Pengerjaan</h3><p class="font-body-sm text-body-sm text-secondary">Lanjutkan fabrikasi rangka dan instalasi kain di lokasi setelah detail spesifikasi dikonfirmasi bersama.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="w-full py-16 md:py-24 bg-surface-container-low">
+  <div class="max-w-[840px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="text-center mb-12">
+      <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-primary mb-2 block">Informasi Umum</span>
+      <h2 class="font-headline-lg text-headline-lg text-on-surface mb-3">Pertanyaan Seputar Kanopi Kain</h2>
+      <p class="font-body-md text-body-md text-secondary">Pertanyaan yang sering diajukan pelanggan mengenai spesifikasi, pemesanan, dan pemasangan kanopi kain.</p>
+    </div>
+    <div class="space-y-4">
+      <details class="group bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden" open>
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none font-title-md text-title-md text-on-surface font-semibold select-none"><span>Berapa harga jasa kanopi kain?</span><span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform text-[22px]">expand_more</span></summary>
+        <div class="px-5 pb-5 pt-1 text-secondary font-body-md text-body-md">Estimasi biaya ditentukan berdasarkan ukuran dimensi, jenis bahan kain (waterproof canvas/acrylic impor seperti Sunbrella/Dickson), tingkat kerumitan struktur rangka, dan kondisi teknis lokasi pemasangan. Anda dapat mengirimkan foto dan perkiraan ukuran lokasi via WhatsApp untuk mendapatkan estimasi awal yang akurat.</div>
+      </details>
+      <details class="group bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none font-title-md text-title-md text-on-surface font-semibold select-none"><span>Apakah model kanopi bisa disesuaikan dengan bangunan?</span><span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform text-[22px]">expand_more</span></summary>
+        <div class="px-5 pb-5 pt-1 text-secondary font-body-md text-body-md">Ya, tentu. Bentuk kurva, kemiringan awning, dimensi rangka, hingga kombinasi warna kain dirancang dan disesuaikan selaras dengan fasad serta estetika bangunan Anda.</div>
+      </details>
+      <details class="group bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none font-title-md text-title-md text-on-surface font-semibold select-none"><span>Apakah tersedia pilihan warna dan bentuk?</span><span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform text-[22px]">expand_more</span></summary>
+        <div class="px-5 pb-5 pt-1 text-secondary font-body-md text-body-md">Tersedia puluhan pilihan warna solid, kombinasi garis (stripes), serta pilihan bentuk standar maupun kustom seperti dome (kubah), waterfall, quarter round, atau flat slope minimalis.</div>
+      </details>
+      <details class="group bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none font-title-md text-title-md text-on-surface font-semibold select-none"><span>Bagaimana cara meminta penawaran?</span><span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform text-[22px]">expand_more</span></summary>
+        <div class="px-5 pb-5 pt-1 text-secondary font-body-md text-body-md">Sangat mudah. Cukup hubungi kami melalui WhatsApp, ceritakan konsep atau kirim foto area yang ingin dipasangi kanopi beserta estimasi panjang dan lebarnya. Kami akan segera menyusunkan rincian penawaran.</div>
+      </details>
+      <details class="group bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden">
+        <summary class="flex items-center justify-between p-5 cursor-pointer list-none font-title-md text-title-md text-on-surface font-semibold select-none"><span>Informasi apa yang perlu disiapkan sebelum konsultasi?</span><span class="material-symbols-outlined text-secondary group-open:rotate-180 transition-transform text-[22px]">expand_more</span></summary>
+        <div class="px-5 pb-5 pt-1 text-secondary font-body-md text-body-md">Cukup siapkan foto area lokasi tampak depan atau samping, perkiraan panjang x lebar bidang yang ingin dilindungi, serta referensi preferensi model atau warna jika sudah ada contoh yang disukai.</div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- KONTAK -->
+<section class="w-full py-16 md:py-24 bg-inverse-surface text-inverse-on-surface" id="kontak">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+      <div class="lg:col-span-7 flex flex-col items-start">
+        <span class="font-label-md text-label-md uppercase tracking-wider font-bold text-[#7ffc97] mb-3 block">Mulai Rencana Anda</span>
+        <h2 class="font-headline-lg text-headline-lg text-inverse-on-surface mb-4">Sedang Merencanakan Pemasangan Kanopi Kain?</h2>
+        <p class="font-body-lg text-body-lg text-surface-variant mb-8 max-w-xl">Konsultasikan kebutuhan Anda bersama Pusaka Canopy. Ceritakan lokasi, ukuran, atau model yang diinginkan untuk memulai pembahasan praktis dan terarah.</p>
+        <a class="inline-flex items-center gap-3 h-[54px] px-8 rounded-lg bg-primary hover:bg-[#15803D] text-on-primary font-label-lg text-label-lg shadow-lg transition-transform hover:scale-[1.02]"
+           href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy%2C%20saya%20ingin%20konsultasi%20jasa%20kanopi%20kain." rel="noopener noreferrer" target="_blank">
+          <svg class="w-5 h-5 fill-current"><use href="#icon-whatsapp"/></svg><span>Hubungi Kami via WhatsApp</span>
+        </a>
+      </div>
+      <div class="lg:col-span-5 bg-surface/10 backdrop-blur-md p-6 sm:p-8 rounded-2xl">
+        <h3 class="font-title-lg text-title-lg text-inverse-on-surface font-bold mb-6 flex items-center gap-2"><span class="material-symbols-outlined text-[#7ffc97]">store</span>Informasi Workshop &amp; Kontak Resmi</h3>
+        <div class="space-y-4 font-body-sm text-body-sm text-surface-variant">
+          <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#7ffc97] text-[20px] shrink-0 mt-0.5">location_on</span><div><p class="font-label-md text-label-md text-inverse-on-surface font-semibold mb-0.5">Alamat Workshop</p><p>Jl. Raya Pulo Gebang No.186, RT.4/RW.4, Ujung Menteng, Kec. Cakung, Kota Jakarta Timur, DKI Jakarta 13960</p></div></div>
+          <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#7ffc97] text-[20px] shrink-0 mt-0.5">call</span><div><p class="font-label-md text-label-md text-inverse-on-surface font-semibold mb-0.5">WhatsApp / Telepon</p><a class="text-inverse-on-surface hover:text-[#7ffc97] transition-colors font-semibold" href="tel:081297768883">0812-9776-8883</a></div></div>
+          <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#7ffc97] text-[20px] shrink-0 mt-0.5">mail</span><div><p class="font-label-md text-label-md text-inverse-on-surface font-semibold mb-0.5">Email</p><a class="hover:text-[#7ffc97] transition-colors" href="mailto:pusakacanopy@gmail.com">pusakacanopy@gmail.com</a></div></div>
+          <div class="flex items-start gap-3"><span class="material-symbols-outlined text-[#7ffc97] text-[20px] shrink-0 mt-0.5">schedule</span><div><p class="font-label-md text-label-md text-inverse-on-surface font-semibold mb-0.5">Jam Operasional</p><p>Senin - Sabtu: 08.00 - 18.00 WIB (Layanan Pesan WA 24 Jam)</p></div></div>
+        </div>
+        <div class="w-full h-16 rounded-lg mt-6 bg-surface/10 flex items-center justify-center">
+          <div class="flex items-center gap-2 text-inverse-on-surface"><span class="material-symbols-outlined text-[#7ffc97] text-[18px]">pin_drop</span><span class="font-label-sm text-label-sm">Cakung, Jakarta Timur (Jangkauan Jabodetabek)</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div>
+</main>
+
+<!-- FLOATING WA BUTTON (Desktop) -->
+<aside class="hidden md:flex fixed bottom-space-lg right-space-lg z-40 items-center" aria-label="Hubungi via WhatsApp">
+  <a class="group flex items-center gap-space-sm bg-surface-container-lowest px-space-md py-space-sm rounded-full shadow-[0_10px_25px_-5px_rgba(15,23,42,0.08),0_8px_10px_-6px_rgba(15,23,42,0.04)] hover:shadow-[0_20px_30px_-10px_rgba(22,163,74,0.3)] transition-all"
+     href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy,%20saya%20ingin%20konsultasi%20kanopi%20kain" rel="noopener noreferrer" target="_blank">
+    <div class="flex flex-col text-right">
+      <span class="font-label-md text-label-md text-on-surface group-hover:text-primary transition-colors font-semibold">WhatsApp CS</span>
+      <div class="flex items-center justify-end gap-1">
+        <span class="relative flex h-2 w-2"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span><span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span></span>
+        <span class="font-label-sm text-label-sm text-secondary">Online - Respon Cepat</span>
+      </div>
+    </div>
+    <div class="w-11 h-11 rounded-full bg-[#16A34A] text-on-primary flex items-center justify-center shadow-sm group-hover:scale-105 transition-transform"><span class="material-symbols-outlined text-[22px]">chat</span></div>
+  </a>
+</aside>
+
+<!-- FLOATING WA BAR (Mobile only) -->
+<div class="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md p-space-sm shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
+  <a class="w-full flex items-center justify-center gap-space-xs bg-[#16A34A] text-on-primary h-[50px] rounded-lg font-label-lg text-label-lg shadow-sm active:bg-[#166534] transition-colors"
+     href="https://wa.me/6281297768883?text=Halo%20Pusaka%20Canopy,%20saya%20ingin%20konsultasi%20kanopi%20kain" rel="noopener noreferrer" target="_blank">
+    <svg class="w-5 h-5 fill-current"><use href="#icon-whatsapp"/></svg><span>Konsultasi via WhatsApp (0812-9776-8883)</span>
+  </a>
+</div>
+
+<!-- FOOTER -->
+<footer class="w-full bg-surface-container-lowest py-space-xl pb-24 md:pb-space-xl">
+  <div class="max-w-[1200px] mx-auto px-gutter-mobile lg:px-gutter">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-space-lg mb-space-xl">
+      <div class="flex flex-col">
+        <div class="flex items-center gap-space-sm mb-space-sm"><div class="w-9 h-9 rounded-lg bg-surface-container-high flex items-center justify-center text-primary"><span class="material-symbols-outlined text-[22px]">roofing</span></div><span class="font-title-md text-title-md uppercase font-bold text-on-surface">PUSAKA CANOPY</span></div>
+        <p class="font-body-sm text-body-sm text-secondary mb-space-md">Spesialis fabrikasi dan instalasi kanopi kain, awning gulung, serta tenda membrane dengan material Sunbrella dan Dickson berstandar internasional.</p>
+        <div class="flex items-center gap-space-sm"><span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-sm py-0.5 rounded-full bg-surface-container text-primary font-medium"><span class="material-symbols-outlined text-[14px]">verified</span>Garansi Resmi</span><span class="inline-flex items-center gap-1 font-label-sm text-label-sm px-space-sm py-0.5 rounded-full bg-surface-container text-secondary font-medium"><span class="material-symbols-outlined text-[14px]">pin_drop</span>Jabodetabek</span></div>
+      </div>
+      <div class="flex flex-col">
+        <h4 class="font-title-md text-title-md text-on-surface mb-space-sm">Layanan Produk</h4>
+        <ul class="space-y-space-xs font-body-sm text-body-sm text-secondary">
+          <li><a class="hover:text-primary transition-colors" href="#layanan">Kanopi Kain Lipat &amp; Statis</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#layanan">Awning Gulung Retractable</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#layanan">Tenda Membrane Tensile</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#layanan">Kanopi Polycarbonate &amp; Alderon</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#layanan">Penggantian &amp; Servis Kain Awning</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col">
+        <h4 class="font-title-md text-title-md text-on-surface mb-space-sm">Navigasi Cepat</h4>
+        <ul class="space-y-space-xs font-body-sm text-body-sm text-secondary">
+          <li><a class="hover:text-primary transition-colors" href="#hero">Beranda Utama</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#keunggulan">Keunggulan &amp; Nilai Tambah</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#portfolio">Galeri Proyek Selesai</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#galeri-proyek">Galeri Dokumentasi</a></li>
+          <li><a class="hover:text-primary transition-colors" href="#kontak">Survei Lokasi Gratis</a></li>
+        </ul>
+      </div>
+      <div class="flex flex-col">
+        <h4 class="font-title-md text-title-md text-on-surface mb-space-sm">Workshop &amp; Kontak</h4>
+        <div class="space-y-space-sm font-body-sm text-body-sm text-secondary">
+          <div class="flex items-start gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px] shrink-0 mt-0.5">location_on</span><span>Jl. Raya Pulo Gebang No.186, Cakung, Jakarta Timur, DKI Jakarta 13960</span></div>
+          <div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px] shrink-0">call</span><a class="hover:text-primary transition-colors font-medium text-on-surface" href="tel:081297768883">0812-9776-8883</a></div>
+          <div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px] shrink-0">mail</span><a class="hover:text-primary transition-colors" href="mailto:pusakacanopy@gmail.com">pusakacanopy@gmail.com</a></div>
+          <div class="flex items-center gap-space-xs"><span class="material-symbols-outlined text-primary text-[20px] shrink-0">schedule</span><span>Senin - Sabtu: 08.00 - 18.00 WIB</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pt-space-md border-t border-outline-variant flex flex-col md:flex-row items-center justify-between gap-space-sm text-secondary font-label-md text-label-md">
+      <div>&copy; 2025 Pusaka Canopy. Hak Cipta Dilindungi Undang-Undang.</div>
+      <div class="flex items-center gap-space-md">
+        <a class="hover:text-primary transition-colors" href="#kontak">Ketentuan Layanan</a>
+        <a class="hover:text-primary transition-colors" href="#kontak">Kebijakan Privasi</a>
+        <a class="hover:text-primary transition-colors" href="https://wa.me/6281297768883" rel="noopener noreferrer" target="_blank">Pusat Bantuan</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// 1. MOBILE DRAWER
+const openBtn  = document.getElementById('open-drawer-btn');
+const closeBtn = document.getElementById('close-drawer-btn');
+const drawer   = document.getElementById('mobile-drawer');
+const overlay  = document.getElementById('mobile-overlay');
+function openDrawer()  { drawer.classList.add('open'); overlay.classList.add('open'); openBtn.setAttribute('aria-expanded','true');  document.body.style.overflow='hidden'; }
+function closeDrawer() { drawer.classList.remove('open'); overlay.classList.remove('open'); openBtn.setAttribute('aria-expanded','false'); document.body.style.overflow=''; }
+openBtn.addEventListener('click', openDrawer);
+closeBtn.addEventListener('click', closeDrawer);
+overlay.addEventListener('click', closeDrawer);
+document.querySelectorAll('.mobile-nav-link').forEach(l => l.addEventListener('click', closeDrawer));
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDrawer(); });
+
+// 2. ACTIVE NAV (IntersectionObserver)
+const activeD = ['bg-primary-container','text-on-primary-container','font-semibold'];
+const inactD  = ['text-on-surface-variant','hover:text-on-surface'];
+function setActiveNav(id) {
+  ['hero','layanan','keunggulan','portfolio','kontak'].forEach(s => {
+    const dl = document.querySelector('.desktop-nav-link[data-section="'+s+'"]');
+    const ml = document.querySelector('.mobile-nav-link[data-section="'+s+'"]');
+    if (dl) { if(s===id){dl.classList.add(...activeD);dl.classList.remove(...inactD);dl.setAttribute('aria-current','page');}else{dl.classList.remove(...activeD);dl.classList.add(...inactD);dl.removeAttribute('aria-current');} }
+    if (ml) { if(s===id){ml.classList.add('bg-primary-container/15','text-primary','font-semibold');ml.setAttribute('aria-current','page');}else{ml.classList.remove('bg-primary-container/15','text-primary','font-semibold');ml.removeAttribute('aria-current');} }
+  });
+}
+const sectionNavMap = {hero:'hero',keunggulan:'keunggulan',layanan:'layanan',portfolio:'portfolio','galeri-proyek':'portfolio',kontak:'kontak'};
+const obs = new IntersectionObserver(entries => { entries.forEach(e => { if(e.isIntersecting) setActiveNav(sectionNavMap[e.target.id]||e.target.id); }); }, {rootMargin:'-40% 0px -55% 0px',threshold:0});
+Object.keys(sectionNavMap).forEach(id => { const el=document.getElementById(id); if(el) obs.observe(el); });
+setActiveNav('hero');
+
+// 3. GALLERY FILTER
+const filterBtns  = document.querySelectorAll('.gallery-filter-btn');
+const galleryItems = document.querySelectorAll('.gallery-item');
+filterBtns.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const filter = btn.dataset.filter;
+    filterBtns.forEach(b => { b.classList.remove('bg-primary','text-on-primary','shadow-sm'); b.classList.add('bg-surface-container','text-secondary'); });
+    btn.classList.add('bg-primary','text-on-primary','shadow-sm'); btn.classList.remove('bg-surface-container','text-secondary');
+    galleryItems.forEach(item => {
+      const match = filter==='all' || item.dataset.category===filter;
+      if(match){ item.classList.remove('hidden-item'); item.style.display=''; }
+      else{ item.classList.add('hidden-item'); setTimeout(()=>{ if(item.classList.contains('hidden-item')) item.style.display='none'; },320); }
+    });
+  });
+});
+</script>
+</body>
+</html>
